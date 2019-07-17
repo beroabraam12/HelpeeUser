@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/requestTypeFragment">
+
+    <fragment
+        android:id="@+id/requestTypeFragment"
+        android:name="com.helpee.helpee.RequestTypeFragment"
+        android:label="fragment_request_type"
+        tools:layout="@layout/fragment_request_type" >
+        <action
+            android:id="@+id/action_requestTypeFragment_to_serviceTypeFragment"
+            app:destination="@id/serviceTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceTypeFragment"
+        android:name="com.helpee.helpee.ServiceTypeFragment"
+        android:label="fragment_service_type"
+        tools:layout="@layout/fragment_service_type" >
+        <action
+            android:id="@+id/action_serviceTypeFragment_to_requestTypeFragment"
+            app:destination="@id/requestTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.helpee.helpee.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
+
+</navigation>
