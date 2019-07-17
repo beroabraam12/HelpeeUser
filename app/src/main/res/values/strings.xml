@@ -45,5 +45,8 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="enter_address_city_or_zip_code">Enter Address, City or Zip Code</string>
+    <string name="schedule_your_help_time">Schedule Your help Time</string>
+    <string name="confirm_help_time">Confirm help time</string>
+    <string name="step_1_3">Step 1|3</string>
 
 </resources>

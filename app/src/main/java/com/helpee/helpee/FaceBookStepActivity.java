@@ -43,6 +43,7 @@ public class FaceBookStepActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(FaceBookStepActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

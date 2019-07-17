@@ -65,6 +65,7 @@ public class ServiceTypeFragment extends Fragment {
         cardVoluntary = v.findViewById(R.id.cardVoluntary);
 
         MainActivity.setDrawerState(false);
+        MainActivity.toolbar.setVisibility(View.VISIBLE);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -23,9 +23,13 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -89,19 +93,25 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
     );
 
     private AutoCompleteTextView etAddressSearch;
-    private ImageView ic_gps;
+    private ImageView ic_gps, imgBackMap;
+    private Button btnConfirmHelpTime;
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mfusedLocationProviderClient;
     private Boolean mLocationPermissionsGranted = false;
     private PlaceAutocompleteAdapter placeAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_schedule, container, false);
         etAddressSearch = v.findViewById(R.id.etAddressSearch);
         ic_gps = v.findViewById(R.id.ic_gps);
+        imgBackMap = v.findViewById(R.id.imgBackMap);
+        btnConfirmHelpTime = v.findViewById(R.id.btnConfirmHelpTime);
+
+        MainActivity.toolbar.setVisibility(View.GONE);
 
         getLocationPermission();
 
@@ -109,17 +119,18 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
     }
     private void init(){
 
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(getContext())
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .enableAutoManage(getActivity(),this)
-                .build();
+        //TODO Google places
+//        mGoogleApiClient = new GoogleApiClient
+//                .Builder(getContext())
+//                .addApi(Places.GEO_DATA_API)
+//                .addApi(Places.PLACE_DETECTION_API)
+//                .enableAutoManage(getActivity(),this)
+//                .build();
+//
+//        placeAutocompleteAdapter = new PlaceAutocompleteAdapter(getContext(),mGoogleApiClient,
+//        LAT_LNG_BOUNDS,null);
 
-        placeAutocompleteAdapter = new PlaceAutocompleteAdapter(getContext(),mGoogleApiClient,
-        LAT_LNG_BOUNDS,null);
-
-        etAddressSearch.setAdapter(placeAutocompleteAdapter);
+//        etAddressSearch.setAdapter(placeAutocompleteAdapter);
 
         etAddressSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -142,6 +153,21 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
             @Override
             public void onClick(View v) {
                 getDeviceLocation();
+            }
+        });
+        imgBackMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.popBackStack(R.id.serviceTypeFragment, true);
+                navController.popBackStack(R.id.scheduleFragment, true);
+                navController.navigate(R.id.serviceTypeFragment);
+            }
+        });
+        btnConfirmHelpTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
         hideSoftKeyboard();

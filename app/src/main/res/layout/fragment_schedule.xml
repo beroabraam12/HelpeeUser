@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".ScheduleFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ScheduleFragment"
+    android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
 <fragment
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/map"
     android:name="com.google.android.gms.maps.SupportMapFragment" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:id="@+id/imgBackMap" />
 <RelativeLayout
+    android:layout_below="@id/imgBackMap"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_marginTop="10dp"
@@ -20,6 +35,7 @@ tools:context=".ScheduleFragment">
     android:elevation="10dp"
     android:background="@drawable/white_border"
     android:id="@+id/relativeSearch">
+
     <ImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
@@ -27,6 +43,7 @@ tools:context=".ScheduleFragment">
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:src="@drawable/ic_search"/>
+
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,15 +59,83 @@ tools:context=".ScheduleFragment">
         android:hint="@string/enter_address_city_or_zip_code"/>
 
 </RelativeLayout>
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/relativeSearch"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:id="@+id/ic_gps"
-        android:src="@drawable/ic_gps"/>
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/relativeSearch"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/ic_gps"
+            android:src="@drawable/ic_gps"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="@drawable/schedule_shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/schedule_your_help_time"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <DatePicker
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:layout_height="100dp"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                android:layout_marginLeft="15dp"
+                android:calendarTextColor="@color/white" />
+
+            <TimePicker
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="2"
+                android:timePickerMode="spinner"
+                android:numbersTextColor="@color/white" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirmHelpTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/soildcolor_shape"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:textColor="@color/white"
+            android:text="@string/confirm_help_time"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/step_1_3"
+            android:textColor="#707070"
+            android:textSize="14sp"
+            android:gravity="end"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp" />
+    </LinearLayout>
+</LinearLayout>
