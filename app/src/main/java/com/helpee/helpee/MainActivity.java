@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     public static ActionBarDrawerToggle toggle;
     public static ImageView back;
     public NavController navController;
+    public static boolean isPaid;
 
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;

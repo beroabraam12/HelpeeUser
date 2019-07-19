@@ -52,7 +52,7 @@ public class ServiceTypeFragment extends Fragment {
         }
     }
     ImageView back;
-    CardView cardVoluntary;
+    CardView cardVoluntary, cardPaid;
 
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -63,10 +63,17 @@ public class ServiceTypeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_service_type, container, false);
         back = getActivity().findViewById(R.id.imgBack);
         cardVoluntary = v.findViewById(R.id.cardVoluntary);
+        cardPaid = v.findViewById(R.id.cardPaid);
 
         MainActivity.setDrawerState(false);
         MainActivity.toolbar.setVisibility(View.VISIBLE);
 
+        init();
+
+        return v;
+    }
+
+    private void init() {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,11 +91,22 @@ public class ServiceTypeFragment extends Fragment {
                 if (isServicesOK()){
                     NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                     navController.navigate(R.id.scheduleFragment);
+                    MainActivity.isPaid = false;
                 }
 
             }
         });
-        return v;
+
+        cardPaid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isServicesOK()) {
+                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                    navController.navigate(R.id.scheduleFragment);
+                    MainActivity.isPaid = true;
+                }
+            }
+        });
     }
 
     public boolean isServicesOK(){

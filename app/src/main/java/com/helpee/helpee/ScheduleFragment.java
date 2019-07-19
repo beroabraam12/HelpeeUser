@@ -1,7 +1,10 @@
 package com.helpee.helpee;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -15,6 +18,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -24,8 +28,10 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.navigation.NavController;
@@ -47,11 +53,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class ScheduleFragment extends Fragment implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener {
+public class ScheduleFragment extends Fragment implements OnMapReadyCallback,
+        GoogleApiClient.OnConnectionFailedListener, DatePickerDialog.OnDateSetListener,
+        TimePickerDialog.OnTimeSetListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -88,13 +101,18 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 15f;
-    private static final LatLngBounds LAT_LNG_BOUNDS = new LatLngBounds(
-            new LatLng(-40,-168),new LatLng(71,136)
-    );
+//    private static final LatLngBounds LAT_LNG_BOUNDS = new LatLngBounds(
+//            new LatLng(-40,-168),new LatLng(71,136)
+//    );
+
+    private String CurrentDate, CurrentTime;
+    private Calendar currentDay;
 
     private AutoCompleteTextView etAddressSearch;
     private ImageView ic_gps, imgBackMap;
     private Button btnConfirmHelpTime;
+    private TextView tvTimeDate;
+    private CardView cardSelectDateTime;
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mfusedLocationProviderClient;
@@ -110,6 +128,8 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
         ic_gps = v.findViewById(R.id.ic_gps);
         imgBackMap = v.findViewById(R.id.imgBackMap);
         btnConfirmHelpTime = v.findViewById(R.id.btnConfirmHelpTime);
+        tvTimeDate = v.findViewById(R.id.tvTimeDate);
+        cardSelectDateTime = v.findViewById(R.id.cardSelectDateTime);
 
         MainActivity.toolbar.setVisibility(View.GONE);
 
@@ -118,6 +138,8 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
         return v;
     }
     private void init(){
+        CurrentTime = null;
+        CurrentDate = null;
 
         //TODO Google places
 //        mGoogleApiClient = new GoogleApiClient
@@ -167,7 +189,16 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
         btnConfirmHelpTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (CurrentDate != null && CurrentTime != null) {
+                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                    navController.navigate(R.id.orderSetupHoursFragment);
+                }
+            }
+        });
+        cardSelectDateTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDailog();
             }
         });
         hideSoftKeyboard();
@@ -327,6 +358,56 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    private void showDatePickerDailog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        final long time = System.currentTimeMillis() - 1;
+        datePickerDialog.getDatePicker().setMinDate(time);
+        datePickerDialog.show();
+    }
+
+    private void showTimePickerDailog() {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), this,
+                Calendar.getInstance().get(Calendar.HOUR),
+                Calendar.getInstance().get(Calendar.MINUTE),
+                false);
+        timePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        CurrentDate = dayOfMonth + "/" + month + "/" + year;
+        currentDay = Calendar.getInstance();
+        currentDay.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        currentDay.set(Calendar.MONTH, month);
+        currentDay.set(Calendar.YEAR, year);
+
+        showTimePickerDailog();
+    }
+
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar datetime = Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
+        datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        datetime.set(Calendar.MINUTE, minute);
+
+        if (datetime.getTimeInMillis() >= c.getTimeInMillis() || currentDay.getTimeInMillis() > c.getTimeInMillis()) {
+            //it's after current
+            int hour = hourOfDay % 12;
+            CurrentTime = String.format("%02d:%02d %s", hour == 0 ? 12 : hour,
+                    minute, hourOfDay < 12 ? "am" : "pm");
+            tvTimeDate.setText(CurrentDate + " " + CurrentTime);
+        } else {
+            //it's before current'
+            Toast.makeText(getContext(), "Invalid Time", Toast.LENGTH_LONG).show();
+            showTimePickerDailog();
+        }
+    }
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -343,7 +424,6 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback, Go
         super.onDetach();
         mListener = null;
     }
-
 
 
     public interface OnFragmentInteractionListener {

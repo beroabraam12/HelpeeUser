@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderGenderFragment"
+    android:background="@color/DarkBackGround">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:id="@+id/imgBackSetupGender"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:contentDescription="@string/back"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/order_setup"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/choose_the_preferred_gender_to_help_you"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="25dp">
+
+            <RadioButton
+                android:id="@+id/rdMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/male"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rdFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/female"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rdAny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/any"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/where_will_you_need_help"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp">
+
+            <RadioButton
+                android:id="@+id/rdIndoor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/indoor"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rdOutdoor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/outdoor"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/rdBoth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/both"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnProceedOrderGender"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/soildcolor_shape"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/proceed"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/step_3_3"
+        android:gravity="end"
+        android:textColor="@color/gray"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp" />
+
+</RelativeLayout>
