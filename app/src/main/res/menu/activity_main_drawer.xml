@@ -10,12 +10,15 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_orders"
+            android:icon="@drawable/ic_orders"
             android:title="@string/menu_orders" />
         <item
             android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_contact"
             android:title="@string/menu_contact_us" />
         <item
             android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"
             android:title="@string/menu_about_us" />
         <item
             android:id="@+id/nav_privacy_policy"

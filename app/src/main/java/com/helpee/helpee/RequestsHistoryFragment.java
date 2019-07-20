@@ -4,9 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 
 public class RequestsHistoryFragment extends Fragment {
@@ -41,12 +45,31 @@ public class RequestsHistoryFragment extends Fragment {
         }
     }
 
+    RecyclerView rvUpcomingOrders;
+    ArrayList<Order> orders;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_requests_history, container, false);
 
+        rvUpcomingOrders = v.findViewById(R.id.rvUpcomingOrders);
+
+        MainActivity.setDrawerState(true);
+        MainActivity.toolbar.setVisibility(View.VISIBLE);
+
+        init();
+
         return v;
+    }
+
+    private void init() {
+        orders = new ArrayList<>();
+        orders.add(new Order(true));
+        orders.add(new Order(false));
+        orders.add(new Order(true));
+        UpcommingAdapter upcommingAdapter = new UpcommingAdapter(orders, getActivity());
+        rvUpcomingOrders.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvUpcomingOrders.setAdapter(upcommingAdapter);
     }
 
     public void onButtonPressed(Uri uri) {

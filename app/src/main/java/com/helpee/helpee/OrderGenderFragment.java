@@ -90,7 +90,9 @@ public class OrderGenderFragment extends Fragment {
             btnProceedOrderGender.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                    popUpEveryThing(navController);
+                    navController.navigate(R.id.requestsHistoryFragment);
                 }
             });
         }
@@ -103,6 +105,13 @@ public class OrderGenderFragment extends Fragment {
                 navController.navigate(R.id.orderSetupHoursFragment);
             }
         });
+    }
+
+    private void popUpEveryThing(NavController navController) {
+        navController.popBackStack();
+        navController.popBackStack();
+        navController.popBackStack();
+        navController.popBackStack();
     }
 
     public void onButtonPressed(Uri uri) {

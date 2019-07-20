@@ -40,5 +40,10 @@
         android:name="com.helpee.helpee.CostFragment"
         android:label="fragment_cost"
         tools:layout="@layout/fragment_cost" />
+    <fragment
+        android:id="@+id/requestsHistoryFragment"
+        android:name="com.helpee.helpee.RequestsHistoryFragment"
+        android:label="fragment_requests_history"
+        tools:layout="@layout/fragment_requests_history" />
 
 </navigation>

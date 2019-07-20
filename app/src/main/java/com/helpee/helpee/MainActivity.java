@@ -73,11 +73,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.nav_home :
-
+                navController.popBackStack();
+                navController.navigate(R.id.requestTypeFragment);
             break;
 
             case R.id.nav_orders :
-
+                navController.navigate(R.id.requestsHistoryFragment);
             break;
 
             case R.id.nav_contact_us :

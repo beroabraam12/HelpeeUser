@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -44,12 +46,15 @@ public class CostFragment extends Fragment {
     }
 
     ImageView imgBackCost;
-
+    Button btnRequestNow;
+    TextView tvPrice;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_cost, container, false);
         imgBackCost = v.findViewById(R.id.imgBackCost);
+        btnRequestNow = v.findViewById(R.id.btnRequestNow);
+        tvPrice = v.findViewById(R.id.tvPrice);
 
         init();
 
@@ -57,6 +62,7 @@ public class CostFragment extends Fragment {
     }
 
     private void init() {
+        tvPrice.setText("50");
         imgBackCost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +72,22 @@ public class CostFragment extends Fragment {
                 navController.navigate(R.id.orderGenderFragment);
             }
         });
+        btnRequestNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                popUpEveryThing(navController);
+                navController.navigate(R.id.requestsHistoryFragment);
+            }
+        });
+    }
+
+    private void popUpEveryThing(NavController navController) {
+        navController.popBackStack();
+        navController.popBackStack();
+        navController.popBackStack();
+        navController.popBackStack();
+        navController.popBackStack();
     }
 
     public void onButtonPressed(Uri uri) {

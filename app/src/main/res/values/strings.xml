@@ -77,5 +77,20 @@
     <string name="l_e">L.E</string>
     <string name="add_promo_code"><u>Add Promo code</u></string>
     <string name="request_now">Request now !</string>
+    <string name="requests_history">Requests History</string>
+    <string name="upcoming_orders">Upcoming Orders</string>
+    <string name="order_history">Order History</string>
+    <string name="timeandDate">Tomorrow 8:30-8:45 Am</string>
+    <string name="the_task">The Task</string>
+    <string name="taskDiscreption">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when</string>
+    <string name="requested_duration">Requested Duration :</string>
+    <string name="_1_hour">1 hour</string>
+    <string name="request_estimation_cost">Request Estimation Cost :</string>
+    <string name="_50_l_e">50 L.E</string>
+    <string name="order_statue">Order Statue :</string>
+    <string name="accepted">Accepted</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="in_progress">In Progress</string>
 
 </resources>

@@ -117,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this,FaceBookStepActivity.class);
             startActivity(intent);
+            finish();
 
         } catch (JSONException e) {
             Toast.makeText(LoginActivity.this , e.getMessage(), Toast.LENGTH_SHORT).show();
