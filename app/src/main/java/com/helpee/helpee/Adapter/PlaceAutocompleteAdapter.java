@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Adapter;
 
 /*
  * Copyright (C) 2015 Google Inc. All Rights Reserved.

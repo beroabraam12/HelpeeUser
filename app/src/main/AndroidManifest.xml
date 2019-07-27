@@ -26,18 +26,24 @@
             android:value="@string/google_maps_API_key"/>
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:name=".Activity.MainActivity"
+            android:label="Let's start using Helpee"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".FaceBookStepActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".Activity.FaceBookStepActivity"
+            android:label="Please Add Some More Information" />
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:label="Welcome to Helpee">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:label="Please Login Using Facebook or Email" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

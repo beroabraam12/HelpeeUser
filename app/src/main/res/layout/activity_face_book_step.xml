@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FaceBookStepActivity"
+    tools:context=".Activity.FaceBookStepActivity"
     android:layout_gravity="center"
     android:orientation="vertical">
 
@@ -24,7 +24,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
                 android:focusable="true"
-                android:src="@drawable/user_placeholder" />
+                android:padding="5dp"
+                android:contentDescription="@string/take_profile_photo"
+                android:src="@drawable/ic_camera" />
 
 
             <EditText
@@ -76,7 +78,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:contentDescription="@string/choose_your_gender">
 
                 <RadioButton
                     android:id="@+id/rdMaleInfo"
@@ -112,6 +115,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="80dp"
+                android:contentDescription="@string/select_disability"
                 android:padding="5dp"/>
 
             <Button
@@ -124,6 +128,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="@color/colorAccent"
                 android:text="@string/confirm"
+                android:contentDescription="@string/confirm_your_information"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

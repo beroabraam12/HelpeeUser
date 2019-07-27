@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+
+import com.helpee.helpee.R;
 
 
 public class CostFragment extends Fragment {
@@ -83,7 +85,7 @@ public class CostFragment extends Fragment {
     }
 
     private void popUpEveryThing(NavController navController) {
-        navController.popBackStack();
+//        navController.popBackStack();
         navController.popBackStack();
         navController.popBackStack();
         navController.popBackStack();

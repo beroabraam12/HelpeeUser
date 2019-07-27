@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -41,26 +41,22 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.helpee.helpee.Activity.MainActivity;
+import com.helpee.helpee.Adapter.PlaceAutocompleteAdapter;
+import com.helpee.helpee.R;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class ScheduleFragment extends Fragment implements OnMapReadyCallback,
         GoogleApiClient.OnConnectionFailedListener, DatePickerDialog.OnDateSetListener,
@@ -181,9 +177,9 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback,
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                navController.popBackStack(R.id.serviceTypeFragment, true);
+                navController.popBackStack(R.id.requestTypeFragment, true);
                 navController.popBackStack(R.id.scheduleFragment, true);
-                navController.navigate(R.id.serviceTypeFragment);
+                navController.navigate(R.id.requestTypeFragment);
             }
         });
         btnConfirmHelpTime.setOnClickListener(new View.OnClickListener() {

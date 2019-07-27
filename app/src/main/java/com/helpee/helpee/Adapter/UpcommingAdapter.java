@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Adapter;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.helpee.helpee.Class.Order;
+import com.helpee.helpee.R;
 
 import java.util.ArrayList;
 
@@ -40,14 +43,8 @@ public class UpcommingAdapter extends RecyclerView.Adapter<UpcommingAdapter.Upco
 
         final Order upcoming = new Order();
         upcoming.setPaid(upcomings.get(i).isPaid());
-        if (upcoming.isPaid()) {
             upcomingViewHolder.imgTask.setImageResource(R.drawable.paid);
             upcomingViewHolder.tvTaskType.setText(R.string.paid);
-        } else {
-            upcomingViewHolder.imgTask.setImageResource(R.drawable.poker);
-            upcomingViewHolder.tvTaskType.setText(R.string.voluntary);
-            upcomingViewHolder.tvTaskPrice.setText("0 L.E");
-        }
 
 
     }

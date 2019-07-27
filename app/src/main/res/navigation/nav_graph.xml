@@ -7,42 +7,42 @@
 
     <fragment
         android:id="@+id/requestTypeFragment"
-        android:name="com.helpee.helpee.RequestTypeFragment"
+        android:name="com.helpee.helpee.Fragment.RequestTypeFragment"
         android:label="fragment_request_type"
         tools:layout="@layout/fragment_request_type" />
     <fragment
         android:id="@+id/serviceTypeFragment"
-        android:name="com.helpee.helpee.ServiceTypeFragment"
+        android:name="com.helpee.helpee.Fragment.ServiceTypeFragment"
         android:label="fragment_service_type"
         tools:layout="@layout/fragment_service_type" />
     <fragment
         android:id="@+id/scheduleFragment"
-        android:name="com.helpee.helpee.ScheduleFragment"
+        android:name="com.helpee.helpee.Fragment.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" />
     <fragment
         android:id="@+id/orderSetupHoursFragment"
-        android:name="com.helpee.helpee.OrderSetupHoursFragment"
+        android:name="com.helpee.helpee.Fragment.OrderSetupHoursFragment"
         android:label="fragment_order_setup"
         tools:layout="@layout/fragment_order_setup_hours" />
     <fragment
         android:id="@+id/orderSetupDaysFragment"
-        android:name="com.helpee.helpee.OrderSetupDaysFragment"
+        android:name="com.helpee.helpee.Fragment.OrderSetupDaysFragment"
         android:label="fragment_order_setup_days"
         tools:layout="@layout/fragment_order_setup_days" />
     <fragment
         android:id="@+id/orderGenderFragment"
-        android:name="com.helpee.helpee.OrderGenderFragment"
+        android:name="com.helpee.helpee.Fragment.OrderGenderFragment"
         android:label="fragment_order_gender"
         tools:layout="@layout/fragment_order_gender" />
     <fragment
         android:id="@+id/costFragment"
-        android:name="com.helpee.helpee.CostFragment"
+        android:name="com.helpee.helpee.Fragment.CostFragment"
         android:label="fragment_cost"
         tools:layout="@layout/fragment_cost" />
     <fragment
         android:id="@+id/requestsHistoryFragment"
-        android:name="com.helpee.helpee.RequestsHistoryFragment"
+        android:name="com.helpee.helpee.Fragment.RequestsHistoryFragment"
         android:label="fragment_requests_history"
         tools:layout="@layout/fragment_requests_history" />
 

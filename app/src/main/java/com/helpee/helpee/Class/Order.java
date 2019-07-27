@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Class;
 
 public class Order {
     private boolean isPaid;

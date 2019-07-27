@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.helpee.helpee.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,7 +43,7 @@ public class FaceBookStepActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO Submit Register To Backend
 
-                Intent intent = new Intent(FaceBookStepActivity.this,MainActivity.class);
+                Intent intent = new Intent(FaceBookStepActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

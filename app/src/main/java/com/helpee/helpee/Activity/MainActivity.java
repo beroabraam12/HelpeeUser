@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Activity;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -23,6 +23,7 @@ import androidx.navigation.Navigation;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.helpee.helpee.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity
     public static ActionBarDrawerToggle toggle;
     public static ImageView back;
     public NavController navController;
-    public static boolean isPaid;
+    public static boolean isPaid = true;
 
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;

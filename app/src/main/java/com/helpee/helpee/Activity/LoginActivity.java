@@ -1,11 +1,10 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -14,6 +13,7 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.helpee.helpee.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 //            age_range = object.getString("age_range");
 //            Toast.makeText(LoginActivity.this, age_range, Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(LoginActivity.this,FaceBookStepActivity.class);
+            Intent intent = new Intent(LoginActivity.this, FaceBookStepActivity.class);
             startActivity(intent);
             finish();
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderSetupDaysFragment"
+    tools:context=".Fragment.OrderSetupDaysFragment"
     android:background="@color/DarkBackGround">
 
     <LinearLayout

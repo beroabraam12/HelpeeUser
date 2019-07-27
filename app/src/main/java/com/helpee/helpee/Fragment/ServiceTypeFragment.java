@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Fragment;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -18,6 +18,8 @@ import androidx.navigation.Navigation;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.helpee.helpee.Activity.MainActivity;
+import com.helpee.helpee.R;
 
 
 public class ServiceTypeFragment extends Fragment {

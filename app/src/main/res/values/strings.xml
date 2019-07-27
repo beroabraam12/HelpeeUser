@@ -33,7 +33,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="coming_soon">Coming Soon</string>
-    <string name="request_professional_helper">Request Professional Helper</string>
+    <string name="request_professional_helper">Request medical service</string>
     <string name="helper_details">You can request helper To help you in your daily tasks like going to club or going to doctor or etc.</string>
     <string name="request_helper">Request Helper</string>
     <string name="choose_request_type">Choose Request Type</string>
@@ -92,5 +92,11 @@
     <string name="cancel">Cancel</string>
     <string name="edit">Edit</string>
     <string name="in_progress">In Progress</string>
+    <string name="take_profile_photo">Take Profile Photo</string>
+    <string name="choose_your_gender">Choose Your Gender</string>
+    <string name="select_disability">select Disability</string>
+    <string name="confirm_your_information">Confirm Your Information</string>
+    <string name="login_using_facebook_account">Login Using Facebook account</string>
+    <string name="login_using_email_and_password">Login using Email and Password</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+
+import com.helpee.helpee.Activity.MainActivity;
+import com.helpee.helpee.R;
 
 
 public class OrderSetupHoursFragment extends Fragment {

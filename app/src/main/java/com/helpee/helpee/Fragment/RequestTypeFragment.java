@@ -1,19 +1,21 @@
-package com.helpee.helpee;
+package com.helpee.helpee.Fragment;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import androidx.navigation.Navigation;
+
+import com.helpee.helpee.Activity.MainActivity;
+import com.helpee.helpee.R;
 
 
-public class RequestsHistoryFragment extends Fragment {
+public class RequestTypeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -23,12 +25,11 @@ public class RequestsHistoryFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public RequestsHistoryFragment() {
+    public RequestTypeFragment() {
     }
 
-
-    public static RequestsHistoryFragment newInstance(String param1, String param2) {
-        RequestsHistoryFragment fragment = new RequestsHistoryFragment();
+    public static RequestTypeFragment newInstance(String param1, String param2) {
+        RequestTypeFragment fragment = new RequestTypeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -43,33 +44,25 @@ public class RequestsHistoryFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
 
-    RecyclerView rvUpcomingOrders;
-    ArrayList<Order> orders;
+    }
+    CardView cardRequestHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_requests_history, container, false);
-
-        rvUpcomingOrders = v.findViewById(R.id.rvUpcomingOrders);
+        View v = inflater.inflate(R.layout.fragment_request_type, container, false);
 
         MainActivity.setDrawerState(true);
         MainActivity.toolbar.setVisibility(View.VISIBLE);
 
-        init();
-
+        cardRequestHelper = v.findViewById(R.id.cardRequestHelper);
+        cardRequestHelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.scheduleFragment);
+            }
+        });
         return v;
-    }
-
-    private void init() {
-        orders = new ArrayList<>();
-        orders.add(new Order(true));
-        orders.add(new Order(false));
-        orders.add(new Order(true));
-        UpcommingAdapter upcommingAdapter = new UpcommingAdapter(orders, getActivity());
-        rvUpcomingOrders.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvUpcomingOrders.setAdapter(upcommingAdapter);
     }
 
     public void onButtonPressed(Uri uri) {
@@ -88,7 +81,6 @@ public class RequestsHistoryFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
