@@ -34,7 +34,7 @@
             android:label="Please Add Some More Information" />
         <activity
             android:name=".Activity.SplashActivity"
-            android:label="Welcome to Helpee">
+            android:label="Helpee">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
