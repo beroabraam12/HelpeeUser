@@ -43,8 +43,6 @@ public class UpcommingAdapter extends RecyclerView.Adapter<UpcommingAdapter.Upco
 
         final Order upcoming = new Order();
         upcoming.setPaid(upcomings.get(i).isPaid());
-            upcomingViewHolder.imgTask.setImageResource(R.drawable.paid);
-            upcomingViewHolder.tvTaskType.setText(R.string.paid);
 
 
     }
@@ -57,9 +55,9 @@ public class UpcommingAdapter extends RecyclerView.Adapter<UpcommingAdapter.Upco
 
     class UpcomingViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvTaskTime, tvTaskDescription, tvTaskDuration, tvTaskPrice, tvTaskState, tvTaskType, tvTaskEdit, tvTaskCancel;
+        TextView tvTaskTime, tvTaskDescription, tvTaskDuration, tvTaskPrice, tvTaskState, tvTaskEdit, tvTaskCancel;
         CardView cardUpcoming;
-        ImageView imgTask;
+
 
         public UpcomingViewHolder(View itemView) {
             super(itemView);
@@ -69,11 +67,9 @@ public class UpcommingAdapter extends RecyclerView.Adapter<UpcommingAdapter.Upco
             tvTaskDuration = itemView.findViewById(R.id.tvTaskDuration);
             tvTaskPrice = itemView.findViewById(R.id.tvTaskPrice);
             tvTaskState = itemView.findViewById(R.id.tvTaskState);
-            tvTaskType = itemView.findViewById(R.id.tvTaskType);
             tvTaskEdit = itemView.findViewById(R.id.tvTaskEdit);
             tvTaskCancel = itemView.findViewById(R.id.tvTaskCancel);
             cardUpcoming = itemView.findViewById(R.id.cardUpcoming);
-            imgTask = itemView.findViewById(R.id.imgTask);
 
         }
     }

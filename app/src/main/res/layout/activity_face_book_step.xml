@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.FaceBookStepActivity"
     android:layout_gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Activity.FaceBookStepActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -17,118 +17,130 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:focusable="true"
-                android:padding="5dp"
-                android:contentDescription="@string/take_profile_photo"
-                android:src="@drawable/ic_camera" />
+                android:text="@string/registration_amp_login"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rvProfileImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/take_profile_photo"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:src="@color/gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="70sp" />
+            </RelativeLayout>
 
 
             <EditText
-                android:id="@+id/etPhoneRegister"
+                android:id="@+id/etFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="30dp"
-                android:background="@drawable/circle_btn_shape"
-                android:gravity="center"
-                android:hint="@string/enter_your_phone"
-                android:inputType="phone"
+                android:hint="@string/first_name"
+                android:inputType="textPersonName"
                 android:maxLines="1"
                 android:padding="10dp"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/etNationalID"
+                android:id="@+id/etLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:background="@drawable/circle_btn_shape"
-                android:gravity="center"
-                android:hint="@string/national_id"
+                android:hint="@string/last_name"
+                android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
-                android:inputType="number" />
+                android:textSize="16sp" />
+
             <EditText
                 android:id="@+id/etDateOfBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:background="@drawable/circle_btn_shape"
-                android:gravity="center"
                 android:hint="@string/date"
+                android:inputType="date"
                 android:padding="10dp"
-                android:textSize="16sp"
-                android:inputType="date" />
-            <RadioGroup
-                android:id="@+id/rvGroupInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:contentDescription="@string/choose_your_gender">
-
-                <RadioButton
-                    android:id="@+id/rdMaleInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="30dp"
-                    android:text="@string/male" />
-                <RadioButton
-                    android:id="@+id/rdFemaleInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="50dp"
-                    android:text="@string/female" />
-
-
-
-            </RadioGroup>
-
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/disability_type"
+                android:layout_marginTop="30dp"
+                android:text="@string/gender"
                 android:textColor="@color/colorAccent"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
-            <Spinner
-                android:id="@+id/disabilityTypeSpinner"
+            <RadioGroup
+                android:id="@+id/rvGroupInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="80dp"
-                android:contentDescription="@string/select_disability"
-                android:padding="5dp"/>
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/choose_your_gender"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rdMaleInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/male" />
+
+                <RadioButton
+                    android:id="@+id/rdFemaleInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/female" />
+
+            </RadioGroup>
+
 
             <Button
                 android:id="@+id/btnConfirmRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="15dp"
-                android:background="@color/colorAccent"
-                android:text="@string/confirm"
+                android:background="@drawable/circle_accent_shape"
                 android:contentDescription="@string/confirm_your_information"
+                android:text="@string/next"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

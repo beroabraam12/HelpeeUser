@@ -128,7 +128,7 @@ public class ScheduleFragment extends Fragment implements OnMapReadyCallback,
         cardSelectDateTime = v.findViewById(R.id.cardSelectDateTime);
 
         MainActivity.toolbar.setVisibility(View.GONE);
-
+        MainActivity.setDrawerState(false);
         getLocationPermission();
 
         return v;

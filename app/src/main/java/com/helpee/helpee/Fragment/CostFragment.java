@@ -7,14 +7,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.helpee.helpee.Class.SpinnerPayment;
 import com.helpee.helpee.R;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Map;
 
 
 public class CostFragment extends Fragment {
@@ -50,6 +57,9 @@ public class CostFragment extends Fragment {
     ImageView imgBackCost;
     Button btnRequestNow;
     TextView tvPrice;
+    Spinner paymentSpinner;
+    LayoutInflater inflator;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,6 +67,8 @@ public class CostFragment extends Fragment {
         imgBackCost = v.findViewById(R.id.imgBackCost);
         btnRequestNow = v.findViewById(R.id.btnRequestNow);
         tvPrice = v.findViewById(R.id.tvPrice);
+        paymentSpinner = v.findViewById(R.id.paymentSpinner);
+
 
         init();
 
@@ -82,6 +94,12 @@ public class CostFragment extends Fragment {
                 navController.navigate(R.id.requestsHistoryFragment);
             }
         });
+        ArrayList<SpinnerPayment> spinnerPayments = new ArrayList<>();
+        spinnerPayments.add(new SpinnerPayment(R.drawable.paper_bill, "Cash"));
+        spinnerPayments.add(new SpinnerPayment(R.drawable.visa, "Visa"));
+        NewAdapter newAdapter = new NewAdapter(spinnerPayments);
+        paymentSpinner.setAdapter(newAdapter);
+        inflator = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     private void popUpEveryThing(NavController navController) {
@@ -90,6 +108,50 @@ public class CostFragment extends Fragment {
         navController.popBackStack();
         navController.popBackStack();
         navController.popBackStack();
+    }
+
+    class NewAdapter extends BaseAdapter {
+        ArrayList<SpinnerPayment> spinnerPayments;
+
+        public NewAdapter(ArrayList<SpinnerPayment> spinnerPayments) {
+            this.spinnerPayments = spinnerPayments;
+        }
+
+        @Override
+        public int getCount() {
+            return spinnerPayments.size();
+        }
+
+        @Override
+        public Object getItem(int arg0) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView tvSpinner;
+            ImageView iconSpinner;
+            if (convertView == null) {
+                convertView = inflator.inflate(R.layout.text_icon, null);
+                tvSpinner = convertView.findViewById(R.id.tvSpinner);
+                iconSpinner = convertView.findViewById(R.id.iconSpinner);
+                tvSpinner.setText(spinnerPayments.get(position).getText());
+                iconSpinner.setImageResource(spinnerPayments.get(position).getIcon());
+            } else {
+                tvSpinner = convertView.findViewById(R.id.tvSpinner);
+                iconSpinner = convertView.findViewById(R.id.iconSpinner);
+                tvSpinner.setText(spinnerPayments.get(position).getText());
+                iconSpinner.setImageResource(spinnerPayments.get(position).getIcon());
+            }
+
+            return convertView;
+        }
+
     }
 
     public void onButtonPressed(Uri uri) {

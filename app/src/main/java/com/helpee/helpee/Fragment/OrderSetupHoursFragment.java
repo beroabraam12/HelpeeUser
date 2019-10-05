@@ -48,7 +48,7 @@ public class OrderSetupHoursFragment extends Fragment {
         }
     }
 
-    TextView tvDaysOrder, tvHoursNum;
+    TextView tvHoursNum;
     ImageView imgBackSetupHours, imgPlusHours, imgMinusHours;
     Button btnProceedOrderHours;
     int numberOfHours;
@@ -58,7 +58,7 @@ public class OrderSetupHoursFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_order_setup_hours, container, false);
 
-        tvDaysOrder = v.findViewById(R.id.tvDaysOrder);
+
         imgBackSetupHours = v.findViewById(R.id.imgBackSetupHours);
         imgPlusHours = v.findViewById(R.id.imgPlusHours);
         imgMinusHours = v.findViewById(R.id.imgMinusHours);
@@ -83,15 +83,7 @@ public class OrderSetupHoursFragment extends Fragment {
             }
         });
         if (MainActivity.isPaid) {
-            tvDaysOrder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                    navController.popBackStack(R.id.orderSetupDaysFragment, true);
-                    navController.popBackStack(R.id.orderSetupHoursFragment, true);
-                    navController.navigate(R.id.orderSetupDaysFragment);
-                }
-            });
+
 
             imgPlusHours.setOnClickListener(new View.OnClickListener() {
                 @Override

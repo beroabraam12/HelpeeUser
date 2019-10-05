@@ -11,8 +11,8 @@
     <string name="register_or_login_using_email"><u>Register or Login using Email</u></string>
     <string name="enter_your_phone">Enter Your Phone</string>
     <string name="disability_type">Disability Type</string>
-    <string name="confirm">Confirm</string>
-    <string name="national_id">National ID</string>
+    <string name="next">Next</string>
+    <string name="last_name">Last Name</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -41,7 +41,7 @@
     <string name="choose_service_type">Choose Service Type</string>
     <string name="paid">Paid</string>
     <string name="you_can_request_home_care_service_with_doctors_nurses_and_physical_therapists">You can request home-care service with doctors, nurses and physical therapists</string>
-    <string name="date">Birthday</string>
+    <string name="date">Date of Birth</string>
     <string name="enter_address_city_or_zip_code">Enter Address, City or Zip Code</string>
     <string name="schedule_your_help_time">Schedule Your help Time</string>
     <string name="confirm_help_time">Confirm help time</string>
@@ -98,5 +98,12 @@
     <string name="confirm_your_information">Confirm Your Information</string>
     <string name="login_using_facebook_account">Login Using Facebook account</string>
     <string name="login_using_email_and_password">Login using Email and Password</string>
+    <string name="_20">+20</string>
+    <string name="registration_amp_login"><![CDATA[Registration & login]]></string>
+    <string name="gender">Gender</string>
+    <string name="first_name">First Name</string>
+    <string name="upload">+ Upload</string>
+    <string name="register">Register</string>
+    <string name="choose_payment_method">Choose payment method.</string>
 
 </resources>

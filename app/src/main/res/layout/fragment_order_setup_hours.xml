@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.OrderSetupHoursFragment"
-    android:background="@color/DarkBackGround">
+    android:background="@color/DarkBackGround"
+    tools:context=".Fragment.OrderSetupHoursFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,73 +12,44 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/imgBackSetupHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_white"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="16dp"
-            android:id="@+id/imgBackSetupHours"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:clickable="true"
             android:contentDescription="@string/back"
-            android:focusable="true" />
+            android:focusable="true"
+            android:src="@drawable/ic_back_white" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/order_setup"
+            android:layout_marginBottom="30dp"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="@string/order_setup"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_marginBottom="30dp" />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/how_much_your_help_may_take"
-            android:layout_marginBottom="15dp" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:text="@string/hours"
-                android:gravity="center"
-                android:background="@color/colorAccent"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvDaysOrder"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:text="@string/days"
-                android:textColor="@color/gray"
-                android:gravity="center"
-                android:background="@color/white" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:layout_marginTop="15dp">
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imgPlusHours"
@@ -86,40 +57,40 @@
                 android:layout_height="40dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/plus_shape"
-                android:contentDescription="@string/increase_your_hours"
-                android:padding="10dp"
                 android:clickable="true"
+                android:contentDescription="@string/increase_your_hours"
                 android:focusable="true"
+                android:padding="10dp"
                 android:src="@drawable/ic_plus" />
 
             <TextView
                 android:id="@+id/tvHoursNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="@string/_number_one"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imgMinusHours"
-                android:background="@drawable/plus_shape"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:padding="10dp"
-                android:contentDescription="@string/decrease_your_hours"
-                android:src="@drawable/ic_minus"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/plus_shape"
                 android:clickable="true"
+                android:contentDescription="@string/decrease_your_hours"
                 android:focusable="true"
-                android:layout_marginStart="20dp" />
+                android:padding="10dp"
+                android:src="@drawable/ic_minus" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/hour_s"
-                android:textSize="26sp"
                 android:layout_marginStart="15dp"
+                android:text="@string/hour_s"
+                android:textColor="@color/white"
+                android:textSize="26sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -127,40 +98,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@color/white"
-            android:textSize="14sp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
             android:text="@string/describe_your_task"
-            android:layout_marginBottom="15dp" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/white"
-            android:hint="@string/my_task_is"
-            android:padding="10dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/et_shape_task"
             android:gravity="top|start"
-            android:maxLines="5"
-            android:textSize="16sp"
-            android:scrollbars="vertical"
+            android:hint="@string/my_task_is"
             android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/btnProceedOrderHours"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/soildcolor_shape"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/soildcolor_shape"
             android:text="@string/proceed"
-            android:textSize="16sp"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textAllCaps="false" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -168,9 +140,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/step_2_3"
-        android:gravity="end"
-        android:textColor="@color/gray"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp" />
+        android:gravity="end"
+        android:text="@string/step_2_3"
+        android:textColor="@color/gray" />
 </RelativeLayout>
